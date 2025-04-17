@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmq2qq3jf8q81"]
+
+[ext_resource type="Texture2D" uid="uid://dutkgv1sqeglp" path="res://assets/backgrounds/black.png" id="1_k2fmo"]
+[ext_resource type="FontFile" uid="uid://yfpxvo21kncj" path="res://assets/fonts/kenvector_future_thin.ttf" id="2_l3cfh"]
+[ext_resource type="AudioStream" uid="uid://dkix7p5pd4og0" path="res://assets/sounds/TitleScreen.mp3" id="3_6q06x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ow5a4"]
+font = ExtResource("2_l3cfh")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_k2fmo")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="Label" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Space Ace"
+label_settings = SubResource("LabelSettings_ow5a4")
+
+[node name="VB" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 18
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6q06x")
+volume_db = -20.0
+autoplay = true

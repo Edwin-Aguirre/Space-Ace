@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtt5p812p88mo"]
+
+[ext_resource type="Texture2D" uid="uid://b268vkusm26sm" path="res://assets/backgrounds/stars1.png" id="1_ps84r"]
+[ext_resource type="Texture2D" uid="uid://v5u88crb6dsc" path="res://assets/backgrounds/stars2.png" id="2_hp6ev"]
+
+[node name="LevelBG" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 2560)
+autoscroll = Vector2(0, 50)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("1_ps84r")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(0, 2560)
+autoscroll = Vector2(0, 90)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2"]
+texture = ExtResource("2_hp6ev")
+
+[node name="Parallax2D3" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+scroll_offset = Vector2(100, -150)
+repeat_size = Vector2(0, 2560)
+autoscroll = Vector2(0, 120)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D3"]
+texture = ExtResource("2_hp6ev")

@@ -11,9 +11,61 @@ config_version=5
 [application]
 
 config/name="Space Ace"
+run/main_scene="uid://dmq2qq3jf8q81"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalHub="*res://globals/signal_hub.gd"
+ScoreManager="*res://globals/score_manager.gd"
+GameManager="*res://globals/game_manager.gd"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://boe4nsnn3sshd"
+
+[input]
+
+up={
+"deadzone": 0.2,
+"events": []
+}
+down={
+"deadzone": 0.2,
+"events": []
+}
+left={
+"deadzone": 0.2,
+"events": []
+}
+right={
+"deadzone": 0.2,
+"events": []
+}
+shoot={
+"deadzone": 0.2,
+"events": []
+}
+exit={
+"deadzone": 0.2,
+"events": []
+}
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="player_bullet"
+2d_physics/layer_3="enemy_bullet"
+2d_physics/layer_4="enemy"
+2d_physics/layer_5="power_up"
+2d_physics/layer_6="shield"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

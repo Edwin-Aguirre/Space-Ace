@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct5chr1c7ps1"]
+
+[ext_resource type="Script" uid="uid://cxfqyayo3rwps" path="res://scenes/out_of_time/out_of_time.gd" id="1_4qxmm"]
+
+[node name="OutOfTime" type="Node"]
+script = ExtResource("1_4qxmm")

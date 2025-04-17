@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://4pmgtm776t64"]
+
+[ext_resource type="Script" uid="uid://67ymda4vybce" path="res://scenes/shake_cam/shake_cam.gd" id="1_tfo78"]
+
+[node name="ShakeCam" type="Camera2D"]
+anchor_mode = 0
+script = ExtResource("1_tfo78")
