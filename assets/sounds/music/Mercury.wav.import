@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c5olly1c1agwo"
-path="res://.godot/imported/Mercury.wav-da11579236ecf414d825dd69239448ba.sample"
+path="res://.godot/imported/Mercury.wav-ebfe9f4218de81b9b0107f31a27d5e45.sample"
 
 [deps]
 
-source_file="res://assets/sounds/Mercury.wav"
-dest_files=["res://.godot/imported/Mercury.wav-da11579236ecf414d825dd69239448ba.sample"]
+source_file="res://assets/sounds/music/Mercury.wav"
+dest_files=["res://.godot/imported/Mercury.wav-ebfe9f4218de81b9b0107f31a27d5e45.sample"]
 
 [params]
 
