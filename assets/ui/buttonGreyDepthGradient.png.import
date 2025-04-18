@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1588vt0b7d5p"
-path="res://.godot/imported/buttonGreen.png-6eec4a1d6620c0207a08515662c57aff.ctex"
+uid="uid://cjfx2kiyltgqj"
+path="res://.godot/imported/buttonGreyDepthGradient.png-bd9483588620f911a210c21e6e1f84e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/buttonGreen.png"
-dest_files=["res://.godot/imported/buttonGreen.png-6eec4a1d6620c0207a08515662c57aff.ctex"]
+source_file="res://assets/ui/buttonGreyDepthGradient.png"
+dest_files=["res://.godot/imported/buttonGreyDepthGradient.png-bd9483588620f911a210c21e6e1f84e6.ctex"]
 
 [params]
 
