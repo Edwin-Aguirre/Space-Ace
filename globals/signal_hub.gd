@@ -6,6 +6,11 @@ signal on_score_updated(v: int)
 signal on_create_explosion(pos: Vector2, anim_name: String)
 signal on_create_powerup(pos: Vector2, powerup_type: PowerUp.PowerUpType)
 signal on_create_powerup_random(pos: Vector2)
+signal on_create_bullet(pos: Vector2, direction: Vector2, speed: float, bullet_type: BulletBase.BulletType)
+
+
+func emit_on_create_bullet(pos: Vector2, direction: Vector2, speed: float, bullet_type: BulletBase.BulletType):
+	on_create_bullet.emit(pos, direction, speed, bullet_type)
 
 
 func emit_on_create_powerup(pos: Vector2, powerup_type: PowerUp.PowerUpType):
