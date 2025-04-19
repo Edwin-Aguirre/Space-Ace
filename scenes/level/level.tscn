@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1jkjukg24tb5"]
+[gd_scene load_steps=7 format=3 uid="uid://d1jkjukg24tb5"]
 
 [ext_resource type="PackedScene" uid="uid://4pmgtm776t64" path="res://scenes/shake_cam/shake_cam.tscn" id="1_h3e3j"]
 [ext_resource type="Script" uid="uid://dllicx53q2kb0" path="res://scenes/level/level.gd" id="1_vpf64"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b8l2xtj6uds7e" path="res://scenes/object_maker/object_maker.tscn" id="3_i166f"]
 [ext_resource type="PackedScene" uid="uid://cer1hnbbwjhy3" path="res://scenes/player/player.tscn" id="4_hnne4"]
 [ext_resource type="AudioStream" uid="uid://c5olly1c1agwo" path="res://assets/sounds/music/Mercury.wav" id="5_vpf64"]
-[ext_resource type="PackedScene" uid="uid://dceaf8k4m3ap6" path="res://scenes/homing_missile/homing_missile.tscn" id="7_wcngd"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_vpf64")
@@ -26,6 +25,3 @@ position = Vector2(315, 424)
 stream = ExtResource("5_vpf64")
 volume_db = -10.0
 autoplay = true
-
-[node name="HomingMissile" parent="." instance=ExtResource("7_wcngd")]
-position = Vector2(59, 30)

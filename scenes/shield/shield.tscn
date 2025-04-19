@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn23plylfb1fs"]
+
+[ext_resource type="Script" uid="uid://bfl474r5psjo8" path="res://scenes/shield/shield.gd" id="1_oyk5a"]
+[ext_resource type="Texture2D" uid="uid://wyw24v2aiomx" path="res://assets/shield/shield3.png" id="1_vqfoy"]
+[ext_resource type="AudioStream" uid="uid://cqjuug2paclij" path="res://assets/sounds/powerup/sfx_shieldUp.ogg" id="2_esdu0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqfoy"]
+radius = 35.1283
+
+[sub_resource type="Animation" id="Animation_oyk5a"]
+resource_name = "hit"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0.784314, 1, 1), Color(0.784314, 0, 0, 1), Color(0, 0.784314, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kbfv6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0.784314, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcb3g"]
+_data = {
+&"RESET": SubResource("Animation_kbfv6"),
+&"hit": SubResource("Animation_oyk5a")
+}
+
+[node name="Shield" type="Area2D"]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("1_oyk5a")
+start_health = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.784314, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vqfoy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vqfoy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_esdu0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lcb3g")
+}
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
