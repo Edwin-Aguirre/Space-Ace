@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://clxqkrv4m272x"]
+
+[ext_resource type="Texture2D" uid="uid://o0id07vgmik8" path="res://assets/ui/buttonGreyDepthFlat.png" id="1_qy603"]
+[ext_resource type="Script" uid="uid://deflkl4c0m35u" path="res://scenes/health_bar/health_bar.gd" id="2_8gela"]
+
+[node name="HealthBar" type="TextureProgressBar"]
+offset_right = 40.0
+offset_bottom = 40.0
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("1_qy603")
+texture_progress = ExtResource("1_qy603")
+tint_under = Color(1, 1, 1, 0.392157)
+script = ExtResource("2_8gela")
+start_health = 50

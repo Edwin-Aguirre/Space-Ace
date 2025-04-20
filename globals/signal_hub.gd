@@ -7,6 +7,11 @@ signal on_create_explosion(pos: Vector2, anim_name: String)
 signal on_create_powerup(pos: Vector2, powerup_type: PowerUp.PowerUpType)
 signal on_create_powerup_random(pos: Vector2)
 signal on_create_bullet(pos: Vector2, direction: Vector2, speed: float, bullet_type: BulletBase.BulletType)
+signal on_player_health_bonus(v: int)
+
+
+func emit_on_player_health_bonus(v: int):
+	on_player_health_bonus.emit(v)
 
 
 func emit_on_create_bullet(pos: Vector2, direction: Vector2, speed: float, bullet_type: BulletBase.BulletType):

@@ -21,7 +21,7 @@ var _health: int = start_health
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	disable_shield()
 
 
 func enable_shield() -> void:

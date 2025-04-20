@@ -9,6 +9,7 @@
 [node name="Player" type="Area2D"]
 collision_mask = 28
 script = ExtResource("1_dovo2")
+health_bonus = 12
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
