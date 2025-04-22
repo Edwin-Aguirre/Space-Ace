@@ -1,0 +1,244 @@
+[gd_scene load_steps=22 format=3 uid="uid://br2ytkkprfm0b"]
+
+[ext_resource type="PackedScene" uid="uid://c2c0jrw1dd45y" path="res://scenes/enemies/enemy_base.tscn" id="1_mlj7y"]
+[ext_resource type="Script" uid="uid://c5e33qt3iqxns" path="res://scenes/enemies/ufo.gd" id="2_6i2ln"]
+[ext_resource type="Texture2D" uid="uid://c08d2hx0uhorj" path="res://assets/ships/enemies/ufoRed.png" id="2_gcniv"]
+[ext_resource type="AudioStream" uid="uid://dq0hdkel4bk73" path="res://assets/sounds/misc/sfx_twoTone.ogg" id="3_6i2ln"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_788s8"]
+radius = 46.1736
+
+[sub_resource type="Animation" id="Animation_tjn3n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_02for"]
+resource_name = "die"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.619608, 0.266667, 0.180392, 1), Color(1, 1, 1, 1), Color(0.619608, 0.266667, 0.180392, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5luai"]
+resource_name = "shoot"
+length = 2.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, -10), Vector2(0, 10), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_6i2ln")
+}],
+"times": PackedFloat32Array(0.5)
+}
+tracks/1/use_blend = true
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 2.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"fire_missile"
+}, {
+"args": [false],
+"method": &"set_shooting"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_odhs5"]
+resource_name = "spin"
+length = 5.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ltvbg"]
+_data = {
+&"RESET": SubResource("Animation_tjn3n"),
+&"die": SubResource("Animation_02for"),
+&"shoot": SubResource("Animation_5luai"),
+&"spin": SubResource("Animation_odhs5")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6i2ln"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_788s8"]
+animation = &"die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_odhs5"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjn3n"]
+animation = &"spin"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5luai"]
+advance_mode = 2
+advance_expression = "_shooting == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_02for"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ltvbg"]
+advance_mode = 2
+advance_expression = "_dead == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q6b87"]
+advance_mode = 2
+advance_expression = "_dead == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_p8lx6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sasbr"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gcniv"]
+states/End/position = Vector2(937, 108)
+states/RESET/node = SubResource("AnimationNodeAnimation_6i2ln")
+states/RESET/position = Vector2(441, 108)
+states/Start/position = Vector2(289, 108)
+states/die/node = SubResource("AnimationNodeAnimation_788s8")
+states/die/position = Vector2(627, 207)
+states/shoot/node = SubResource("AnimationNodeAnimation_odhs5")
+states/shoot/position = Vector2(693, 108)
+states/spin/node = SubResource("AnimationNodeAnimation_tjn3n")
+states/spin/position = Vector2(553, 108)
+transitions = ["spin", "shoot", SubResource("AnimationNodeStateMachineTransition_5luai"), "shoot", "spin", SubResource("AnimationNodeStateMachineTransition_02for"), "spin", "die", SubResource("AnimationNodeStateMachineTransition_ltvbg"), "shoot", "die", SubResource("AnimationNodeStateMachineTransition_q6b87"), "RESET", "spin", SubResource("AnimationNodeStateMachineTransition_p8lx6"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_sasbr")]
+graph_offset = Vector2(-72, 32)
+
+[node name="UFO" instance=ExtResource("1_mlj7y")]
+script = ExtResource("2_6i2ln")
+
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+position = Vector2(0, -46)
+
+[node name="Marker2D2" type="Marker2D" parent="Booms" index="1"]
+position = Vector2(0, 46)
+
+[node name="Marker2D3" type="Marker2D" parent="Booms" index="2"]
+position = Vector2(46, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Booms" index="3"]
+position = Vector2(-46, 0)
+
+[node name="Marker2D5" type="Marker2D" parent="Booms" index="4"]
+position = Vector2(-31, -34)
+
+[node name="Marker2D6" type="Marker2D" parent="Booms" index="5"]
+position = Vector2(31, -34)
+
+[node name="Marker2D7" type="Marker2D" parent="Booms" index="6"]
+position = Vector2(31, 33)
+
+[node name="Marker2D8" type="Marker2D" parent="Booms" index="7"]
+position = Vector2(-33, 33)
+
+[node name="HealthBar" parent="." index="3"]
+offset_left = -35.0
+offset_top = -70.0
+offset_right = 35.0
+offset_bottom = -50.0
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_788s8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="5"]
+texture = ExtResource("2_gcniv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+&"": SubResource("AnimationLibrary_ltvbg")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="7"]
+deterministic = false
+tree_root = SubResource("AnimationNodeStateMachine_gcniv")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="ShootTimer" type="Timer" parent="." index="8"]
+wait_time = 7.0
+autostart = true
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

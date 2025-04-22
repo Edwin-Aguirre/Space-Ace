@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1jkjukg24tb5"]
+[gd_scene load_steps=15 format=3 uid="uid://d1jkjukg24tb5"]
 
 [ext_resource type="PackedScene" uid="uid://4pmgtm776t64" path="res://scenes/shake_cam/shake_cam.tscn" id="1_h3e3j"]
 [ext_resource type="Script" uid="uid://dllicx53q2kb0" path="res://scenes/level/level.gd" id="1_vpf64"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bf3k7nvrdda1e" path="res://scenes/enemies/enemy_zipper.tscn" id="8_xv074"]
 [ext_resource type="PackedScene" uid="uid://cxpadpgkuxumr" path="res://scenes/enemies/enemy_bio.tscn" id="9_tf2q7"]
 [ext_resource type="PackedScene" uid="uid://dyrdjxn8r6c6c" path="res://scenes/enemies/enemy_bomber.tscn" id="10_pe1ox"]
+[ext_resource type="PackedScene" uid="uid://br2ytkkprfm0b" path="res://scenes/enemies/ufo.tscn" id="11_pe1ox"]
 
 [sub_resource type="Curve2D" id="Curve2D_m0bv2"]
 _data = {
@@ -69,3 +70,6 @@ curve = SubResource("Curve2D_pm6rs")
 
 [node name="EnemyBomber" parent="Path2D3" instance=ExtResource("10_pe1ox")]
 position = Vector2(-35, 351)
+
+[node name="UFO" parent="." instance=ExtResource("11_pe1ox")]
+position = Vector2(439, 93)

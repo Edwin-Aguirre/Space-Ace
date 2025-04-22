@@ -10,7 +10,12 @@ radius = 25.0
 shoots_at_player = true
 bullet_wait_time = 2.0
 bullet_wait_time_var = 0.2
-power_up_chance = 0.9
+
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+position = Vector2(0, 15)
+
+[node name="Marker2D2" type="Marker2D" parent="Booms" index="1"]
+position = Vector2(0, -19)
 
 [node name="HealthBar" parent="." index="3"]
 offset_left = -20.0
