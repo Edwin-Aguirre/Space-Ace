@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1jkjukg24tb5"]
+[gd_scene load_steps=16 format=3 uid="uid://d1jkjukg24tb5"]
 
 [ext_resource type="PackedScene" uid="uid://4pmgtm776t64" path="res://scenes/shake_cam/shake_cam.tscn" id="1_h3e3j"]
 [ext_resource type="Script" uid="uid://dllicx53q2kb0" path="res://scenes/level/level.gd" id="1_vpf64"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cer1hnbbwjhy3" path="res://scenes/player/player.tscn" id="4_hnne4"]
 [ext_resource type="AudioStream" uid="uid://c5olly1c1agwo" path="res://assets/sounds/music/Mercury.wav" id="5_vpf64"]
 [ext_resource type="PackedScene" uid="uid://cinllkmnek4gq" path="res://scenes/game_ui/game_ui.tscn" id="7_wcngd"]
+[ext_resource type="PackedScene" uid="uid://boxe44dj1jky6" path="res://scenes/game_over_ui/game_over_ui.tscn" id="8_m0bv2"]
 [ext_resource type="PackedScene" uid="uid://bf3k7nvrdda1e" path="res://scenes/enemies/enemy_zipper.tscn" id="8_xv074"]
 [ext_resource type="PackedScene" uid="uid://cxpadpgkuxumr" path="res://scenes/enemies/enemy_bio.tscn" id="9_tf2q7"]
 [ext_resource type="PackedScene" uid="uid://dyrdjxn8r6c6c" path="res://scenes/enemies/enemy_bomber.tscn" id="10_pe1ox"]
@@ -52,6 +53,8 @@ autoplay = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameUI" parent="CanvasLayer" instance=ExtResource("7_wcngd")]
+
+[node name="GameOverUI" parent="CanvasLayer" instance=ExtResource("8_m0bv2")]
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_m0bv2")

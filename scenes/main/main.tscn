@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://emqe56re06di" path="res://scenes/ui_button/ui_button.tscn" id="3_l3cfh"]
 
 [node name="Main" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
