@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyWaves" load_steps=6 format=3 uid="uid://b4dvuoxux7e2x"]
+
+[ext_resource type="Script" uid="uid://052vtrtvbim7" path="res://classes/enemy_waves.gd" id="1_qrpo6"]
+[ext_resource type="Script" uid="uid://lsebyvnwmso3" path="res://classes/enemy_wave.gd" id="2_vs4aj"]
+[ext_resource type="Resource" uid="uid://cs7laa6bnp303" path="res://resources/zipper_wave.tres" id="3_sv1tc"]
+[ext_resource type="Resource" uid="uid://b0g6yvks5ix31" path="res://resources/bio_wave.tres" id="4_co27k"]
+[ext_resource type="Resource" uid="uid://3f36tpevn2sv" path="res://resources/bomber_wave.tres" id="5_7gyds"]
+
+[resource]
+script = ExtResource("1_qrpo6")
+waves = Array[ExtResource("2_vs4aj")]([ExtResource("3_sv1tc"), ExtResource("4_co27k"), ExtResource("5_7gyds"), ExtResource("3_sv1tc"), ExtResource("4_co27k"), ExtResource("5_7gyds"), ExtResource("3_sv1tc"), ExtResource("4_co27k"), ExtResource("5_7gyds")])
+metadata/_custom_type_script = "uid://052vtrtvbim7"

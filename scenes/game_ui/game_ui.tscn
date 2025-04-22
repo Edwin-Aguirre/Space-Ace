@@ -37,6 +37,7 @@ custom_minimum_size = Vector2(128, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+start_health = 100
 
 [node name="ScoreLabel" type="Label" parent="ColorRect/MC"]
 layout_mode = 2

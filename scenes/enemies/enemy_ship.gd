@@ -1,6 +1,9 @@
 extends EnemyBase
 
 
+class_name EnemyShip
+
+
 @export var shoots_at_player: bool = false
 @export var aims_at_player: bool = false
 @export var bullet_type: BulletBase.BulletType = BulletBase.BulletType.Enemy
@@ -23,6 +26,10 @@ func _ready() -> void:
 	if !_player_ref:
 		queue_free()
 	start_shoot_timer()
+
+
+func setup(speed: float) -> void:
+	_speed = speed
 
 
 func start_shoot_timer() -> void:
