@@ -16,6 +16,7 @@ const MARGIN: float = 21.0
 
 @onready var ship: Sprite2D = $Ship
 @onready var shield: Shield = $Shield
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 
 var _upper_left: Vector2
@@ -49,6 +50,7 @@ func _process(delta: float) -> void:
 
 func shoot() -> void:
 	SignalHub.emit_on_create_bullet(global_position, bullet_direction, bullet_speed, BulletBase.BulletType.Player)
+	sound.play()
 
 
 func get_input() -> Vector2:

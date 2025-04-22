@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cer1hnbbwjhy3"]
+[gd_scene load_steps=11 format=3 uid="uid://cer1hnbbwjhy3"]
 
 [ext_resource type="Texture2D" uid="uid://dbnqjqtc0xelx" path="res://assets/ships/player/playerShip2_blue.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://c6poc4moo3dbd" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://dn23plylfb1fs" path="res://scenes/shield/shield.tscn" id="3_gmlin"]
 [ext_resource type="Texture2D" uid="uid://dx4f5mk8t154v" path="res://assets/lasers/laserBlue01.png" id="3_lvxji"]
+[ext_resource type="AudioStream" uid="uid://b04nf4bppjd6o" path="res://assets/sounds/lasers/sfx_laser1.ogg" id="5_75vfm"]
+[ext_resource type="AudioStream" uid="uid://e4pkvqrvl4hv" path="res://assets/sounds/lasers/sfx_laser2.ogg" id="6_0owmy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dovo2"]
 
@@ -66,6 +68,11 @@ _data = {
 &"fly": SubResource("Animation_p47bc")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qek5x"]
+streams_count = 2
+stream_0/stream = ExtResource("5_75vfm")
+stream_1/stream = ExtResource("6_0owmy")
+
 [node name="Player" type="Area2D"]
 collision_mask = 28
 script = ExtResource("1_dovo2")
@@ -96,5 +103,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_75vfm")
 }
 autoplay = "fly"
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_qek5x")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
