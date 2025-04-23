@@ -12,6 +12,7 @@ offset_bottom = 40.0
 texture_normal = ExtResource("1_dxprj")
 texture_pressed = ExtResource("3_1of2a")
 texture_hover = ExtResource("2_o54dh")
+texture_focused = ExtResource("2_o54dh")
 script = ExtResource("4_o54dh")
 
 [node name="ButtonLabelText" type="Label" parent="."]

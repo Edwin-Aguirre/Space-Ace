@@ -51,10 +51,14 @@ theme_override_constants/separation = 20
 
 [node name="PlayButton" parent="MC/VB" instance=ExtResource("3_l3cfh")]
 layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../ExitButton")
 text = "Play"
 
 [node name="ExitButton" parent="MC/VB" instance=ExtResource("3_l3cfh")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath(".")
 text = "Exit"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
